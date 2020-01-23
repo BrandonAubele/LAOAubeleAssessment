@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Nasa Picture Reciever</title>
+    <style type="text/css">
+            .container {
+                padding-top: 35px;
+                overflow: auto;
+            }
+            img {
+                max-width: 300px;
+                max-height: 250px;
+            }
+            .img-box {
+                padding: 10px;
+                height: 300px;
+                width: 350px;
+                float: left;
+                text-align: center;
+            }
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            p {
+                font-size: 80%;
+            }
+            h1 {
+                text-align: center;
+                margin-top: 35px;
+            }
+        </style>
+</head>
+<body>
+    <h1>Nasa Rover Picutures</h1>
+    <h3>Here some awesome NASA Mars Rover pictures</h3>
+    <div class="container">
+        <div class="img-box" th:each="photo : ${nasaImages.photos}">
+            <a th:href="@{${'/images/' + photo.img_name }}">
+                <img th:src="@{${'/images/' + photo.img_name }}" th:title="${photo.img_name}" />
+            </a>
+            <p th:text="${photo.img_name}">Image Name</p>
+        </div>
+    </div>
+    <!--<div th:unless="${#lists.isEmpty(nasaImages.photos)}">
+
+    </div>
+   <dif th:if="${#lists.isEmpty(nasaImages.photos)}">
+        <p>You haven't loaded any NASA Mars Rover pictures yet</p>
+    </dif>-->
+</body>
+</html>
