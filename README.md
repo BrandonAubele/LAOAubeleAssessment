@@ -36,9 +36,6 @@ This is the base (http://localhost:8080/)
    * Gets pictures for a specific date and stores locally
    * Returns submitted date and list of loaded pictures as JSON Obj
    
-* GET /acceptance
+* GET /final
    * Retrieves pictures from API using dates stored in file
    * Returns list of submitted dates and loaded pictures for each correct date as a JSON Obj
-
-
-"# LAOAubeleAssessment" 
