@@ -40,11 +40,11 @@ public class FinalHandler {
         return this.roverService.getPicturesByDate(parseDate);
     }
 
-    public RoverRetrieve runAcceptanceTest() {
+    public RoverRetrieve runFinal() {
         // run acceptance test
         RoverRetrieve response = new RoverRetrieve();
-        List<String> acceptanceDates = PictureService.getDatesFromFile(PictureService.DATES_FILE);
-        for (String date : acceptanceDates) {
+        List<String> finalDates = PictureService.getDatesFromFile(PictureService.DATES_FILE);
+        for (String date : finalDates) {
             RoverRetrieve dateResponse = getPicturesByDate(date);
             response.addPhotos(dateResponse.getPhotos());
         }
