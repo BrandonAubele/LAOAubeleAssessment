@@ -25,9 +25,6 @@ public class FinalController {
 
     @GetMapping(value = "/")
     public String index(Model model) {
-        /**
-         * this returns all currently downloaded images
-         */
         logger.info("index");
         RoverRetrieve nasaImages = finalHandler.getAllPhotos();
         model.addAttribute(NASA_IMAGES, nasaImages);
@@ -36,21 +33,15 @@ public class FinalController {
 
     @GetMapping(value = "/picture/{date}")
     public String getPicturesByDate(@PathVariable("date") String date, Model model) {
-        /**
-         * this downloads all images for the specified date (if not already local) and displays them
-         */
         logger.info("getPicturesByDate");
         RoverRetrieve nasaImages = finalHandler.getPicturesByDate(date);
         model.addAttribute(NASA_IMAGES, nasaImages);
         return "index";
     }
 
-    @GetMapping(value = "/acceptance")
-    public String runAcceptanceTest(Model model) {
-        /**
-         * this runs the acceptance criteria (see README.md)
-         */
-        logger.info("runAcceptanceTest");
+    @GetMapping(value = "/final")
+    public String runFinal(Model model) {
+        logger.info("runFinal");
         RoverRetrieve nasaImages = finalHandler.runAcceptanceTest();
         model.addAttribute(NASA_IMAGES, nasaImages);
         return "index";
